@@ -39,12 +39,13 @@ if [[ "$?" != "0" ]]; then
 fi
 
 ssh $TARGET_USER@$TARGET_HOST -p $TARGET_PORT << SCRIPT
-pwd
-
 function log {
   echo ""
   echo ">> \$@"
 }
+
+pwd
+log "Deploying ${ORG_NAME_TO_DEPLOY}/${REPO_NAME_TO_DEPLOY}"
 
 log "Ensuring github.com is in known_hosts"
 grep "github.com" .ssh/known_hosts
