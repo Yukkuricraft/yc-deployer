@@ -100,5 +100,12 @@ else
     check_success "git pull"
 fi
 
+
+make -q build
+if [[ "\$?" != "2" ]]; then
+    log "Building docker images"
+    make build
+fi
+
 log "Done"
 SCRIPT
